@@ -14,12 +14,12 @@ gzip = True
 bind = '0.0.0.0'
 port = int(os.getenv('PORT', 8923))
 https = bool(os.getenv('ENABLE_HTTPS', False))
-cookie_days = 5
+cookie_days = 7
 mysql_url = urlparse.urlparse(os.getenv('JAWSDB_MARIA_URL', ''))
 redis_url = urlparse.urlparse(os.getenv('REDISCLOUD_URL', ''))
 
 class mysql(object):
-    host = mysql_url.hostname or 'localhost'
+    host = mysql_url.hostname or '127.0.0.1'
     port = mysql_url.port or '3306'
     database = mysql_url.path[1:] or 'qiandao'
     user = mysql_url.username or 'qiandao'
